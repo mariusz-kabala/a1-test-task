@@ -1,5 +1,7 @@
+import { CHANGE_FIELDS } from '../actions/form'
+
 const initalStore = {
-  name: null,
+  name: { value: 'test' },
   description: null,
   stockNumber: null,
   auctionEndTime: null,
@@ -8,5 +10,12 @@ const initalStore = {
 }
 
 export default function form(state = initalStore, action = {}) {
-  return state
+  switch (action.type) {
+    case CHANGE_FIELDS: {
+      return { ...state, ...action.fields }
+    }
+    default: {
+      return state
+    }
+  }
 }

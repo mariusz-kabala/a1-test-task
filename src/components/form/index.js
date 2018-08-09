@@ -1,6 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Form, Input, Button, DatePicker, Modal } from 'antd'
-
+import { changeFields } from '../../actions/form'
 const FormItem = Form.Item
 
 class CarForm extends React.Component {
@@ -37,7 +38,7 @@ class CarForm extends React.Component {
             validateFields((err, values) => {
               if (!err) {
                 console.log('Received values of form: ', values)
-                this.props.form.resetFields()
+                this.props.props.resetFields()
                 this.setState({ isVisible: false })
               }
             })
@@ -117,4 +118,19 @@ class CarForm extends React.Component {
   }
 }
 
-export default Form.create()(CarForm)
+export default connect(
+  state => ({ initialValues: state.form }),
+  { changeFields }
+)(
+  Form.create({
+    mapPropsToFields: ({ initialValues, ...rest }) =>
+      Object.entries(initialValues).reduce((props, [key, value]) => {
+        props[key] = Form.createFormField({ ...rest[key], ...value })
+
+        return props
+      }, {}),
+    onFieldsChange: ({ changeFields }, fields) => {
+      changeFields(fields)
+    }
+  })(CarForm)
+)
