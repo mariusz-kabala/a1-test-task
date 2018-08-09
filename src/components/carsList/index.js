@@ -6,7 +6,7 @@ class CarsList extends Component {
   render() {
     const { cars } = this.props
 
-    return cars.map(car => <CarCard {...car} />)
+    return cars.map((car, index) => <CarCard key={index} {...car} />)
   }
 }
 
