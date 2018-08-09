@@ -4,6 +4,7 @@ import './App.css'
 import Counter from './components/counter'
 import Form from './components/form'
 import { Row, Col } from 'antd'
+import CarsList from './components/carsList'
 
 class App extends Component {
   render() {
@@ -15,7 +16,9 @@ class App extends Component {
         </header>
         <div className="App-intro">
           <Row type="flex" justify="center">
-            <Col span={6}>col-6</Col>
+            <Col span={6}>
+              <CarsList />
+            </Col>
             <Col span={6}>col-6</Col>
           </Row>
           <p>

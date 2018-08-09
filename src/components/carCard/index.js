@@ -9,7 +9,7 @@ class CarCard extends PureComponent {
 
   render() {
     const { name } = this.props
-
+console.log(this.props)
     return (
       <Card>
         {this.renderTitle(name)}
