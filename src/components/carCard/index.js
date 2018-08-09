@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Card } from 'antd'
 import CarTable from '../carTable'
 import Counter from '../counter'
+import SelectButton from '../selectButton'
 
 class CarCard extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class CarCard extends Component {
 
     const now = new Date()
 
-    const diff = parseInt((auctionEndTime.getTime() - now.getTime()) / 1000)
+    const diff = parseInt((auctionEndTime.toDate().getTime() - now.getTime()) / 1000)
 
     this.state = {
       counter: diff
@@ -35,7 +36,7 @@ class CarCard extends Component {
 
       const now = new Date()
 
-      const diff = parseInt((auctionEndTime.getTime() - now.getTime()) / 1000)
+      const diff = parseInt((auctionEndTime.toDate().getTime() - now.getTime()) / 1000)
 
       this.setState({ counter: diff })
     } else {
@@ -68,6 +69,7 @@ class CarCard extends Component {
       <Card title={<Counter seconds={this.state.counter} />}>
         {this.renderTitle(name)}
         <CarTable columns={columns} {...this.props} />
+        <SelectButton carIndex={this.props.index}/>
       </Card>
     )
   }
