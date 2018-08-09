@@ -33,3 +33,22 @@
     transform: rotate(360deg);
   }
 }
+
+.car-card {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.car-card strong {
+  display: inline-block;
+  min-width: 130px;
+}
+
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
