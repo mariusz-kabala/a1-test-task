@@ -4,6 +4,6 @@ const initalStore = {
   counter: 0
 }
 
-return function cars(state=initalStore, action={}) {
-
+export default function cars(state=initalStore, action={}) {
+  return state
 }
