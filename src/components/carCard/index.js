@@ -38,7 +38,7 @@ class CarCard extends Component {
     const columns = [
       {
         dataIndex: 'stockNumber',
-        label: 'stockNumber'
+        label: 'Stock number'
       },
       {
         dataIndex: 'firstRegistration',

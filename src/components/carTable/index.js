@@ -6,7 +6,7 @@ class CarTable extends PureComponent {
     const { columns } = this.props
 
     return (
-      <ul>
+      <ul className="car-card">
         {
           columns.map((column, index) => {
             return (
