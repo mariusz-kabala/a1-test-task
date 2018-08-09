@@ -1,3 +1,5 @@
+import { CREATE_CAR } from '../actions/cars'
+
 const initalStore = {
   cars: [
     {
@@ -21,6 +23,16 @@ const initalStore = {
   counter: 0
 }
 
-export default function cars(state=initalStore, action={}) {
-  return state
+export default function cars(state = initalStore, action = {}) {
+  switch (action.type) {
+    case CREATE_CAR: {
+      return {
+        ...state,
+        cars: [...state.cars, action.car]
+      }
+    }
+    default: {
+      return state
+    }
+  }
 }
