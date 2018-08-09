@@ -24,7 +24,6 @@ class App extends Component {
             <Col span={6}>col-6</Col>
           </Row>
           <p>
-            <Button icon="plus">Add Counter</Button>
             <Button
               type="danger"
               onClick={e => this.props.dispatch({ type: STOP_ALL_COUNTERS })}
