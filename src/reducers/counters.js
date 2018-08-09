@@ -2,6 +2,6 @@ const initalStore = {
   isRunning: true
 }
 
-return function counters(state=initalStore, action={}) {
-
+export default function counters(state=initalStore, action={}) {
+  return state
 }

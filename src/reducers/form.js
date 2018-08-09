@@ -7,4 +7,6 @@ const initalStore = {
   horsepower: null
 }
 
-return function form(state = initalStore, action = {}) {}
+export default function form(state = initalStore, action = {}) {
+  return state
+}
