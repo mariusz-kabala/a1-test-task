@@ -1,3 +1,5 @@
+import { CHANGE_FIELDS } from '../actions/form'
+
 const initalStore = {
   name: null,
   description: null,
@@ -7,4 +9,13 @@ const initalStore = {
   horsepower: null
 }
 
-return function form(state = initalStore, action = {}) {}
+return function form(state = initalStore, action = {}) {
+  switch (action.type) {
+    case CHANGE_FIELDS: {
+      return { ...state, ...action.fields }
+    }
+    default: {
+      return state
+    }
+  }
+}

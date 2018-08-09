@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Input, Button, DatePicker, Modal } from 'antd'
-
+import { changeField } from '../../actions/form'
 const FormItem = Form.Item
 
 class CarForm extends React.Component {
@@ -117,4 +117,6 @@ class CarForm extends React.Component {
   }
 }
 
-export default Form.create()(CarForm)
+export default Form.create({
+  onFieldsChange: (props, fields) => changeField(fields)
+})(CarForm)
