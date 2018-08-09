@@ -1,6 +1,5 @@
 const initalStore = {
   name: null,
-  year: null,
   description: null,
   stockNumber: null,
   auctionEndTime: null,
@@ -8,6 +7,4 @@ const initalStore = {
   horsepower: null
 }
 
-return function form(state=initalStore, action={}) {
-
-}
+return function form(state = initalStore, action = {}) {}
