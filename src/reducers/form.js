@@ -9,7 +9,7 @@ const initalStore = {
   horsepower: null
 }
 
-return function form(state = initalStore, action = {}) {
+export function form(state = initalStore, action = {}) {
   switch (action.type) {
     case CHANGE_FIELDS: {
       return { ...state, ...action.fields }
