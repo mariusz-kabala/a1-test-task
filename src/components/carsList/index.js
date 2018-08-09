@@ -9,7 +9,7 @@ class CarsList extends Component {
 
     return cars.map((car, index) =>
       <div style={{ marginTop: 20, position: 'relative' }}>
-        <CarCard key={index} {...car} />
+        <CarCard key={index} index={index} {...car} />
         <Icon className="close-button" type="close-circle" />
       </div>
     )

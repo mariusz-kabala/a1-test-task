@@ -7,6 +7,7 @@ import { START_ALL_COUNTERS, STOP_ALL_COUNTERS } from './actions/counters'
 import Form from './components/form'
 import { Row, Col } from 'antd'
 import CarsList from './components/carsList'
+import CarDetails from './components/details'
 
 class App extends Component {
   render() {
@@ -21,9 +22,11 @@ class App extends Component {
             <Col span={6}>
               <CarsList />
             </Col>
-            <Col span={6}>col-6</Col>
+            <Col span={6}>
+              <CarDetails />
+            </Col>
           </Row>
-          <p>
+          <p style={{marginTop: 20}}>
             <Button
               type="danger"
               onClick={e => this.props.dispatch({ type: STOP_ALL_COUNTERS })}
