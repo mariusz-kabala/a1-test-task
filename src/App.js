@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { Button } from 'antd'
+import { connect } from 'react-redux'
 import logo from './logo.svg'
 import './App.css'
-import Counter from './components/counter'
+import { START_ALL_COUNTERS, STOP_ALL_COUNTERS } from './actions/counters'
 import Form from './components/form'
 import { Row, Col } from 'antd'
 import CarsList from './components/carsList'
@@ -22,9 +24,18 @@ class App extends Component {
             <Col span={6}>col-6</Col>
           </Row>
           <p>
-            <a>Add Counter</a>
-            <a>Stop all counters</a>
-            <a>Starg all counters</a>
+            <Button
+              type="danger"
+              onClick={e => this.props.dispatch({ type: STOP_ALL_COUNTERS })}
+            >
+              Stop all counters
+            </Button>
+            <Button
+              type="primary"
+              onClick={e => this.props.dispatch({ type: START_ALL_COUNTERS })}
+            >
+              Start all counters
+            </Button>
           </p>
         </div>
 
@@ -34,4 +45,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default connect()(App)

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Card } from 'antd'
 import CarTable from '../carTable'
 import Counter from '../counter'
 
 class CarCard extends Component {
-
   constructor(props) {
     super(props)
 
@@ -23,14 +23,28 @@ class CarCard extends Component {
     setInterval(() => {
       if (this.state.counter > 0) {
         this.setState({
-          counter: this.state.counter -= 1
+          counter: (this.state.counter -= 1)
         })
       }
     }, 1000)
   }
 
+  componentWillReceiveProps({ counters }) {
+    if (counters.isRunning) {
+      const { auctionEndTime } = this.props
+
+      const now = new Date()
+
+      const diff = parseInt((auctionEndTime.getTime() - now.getTime()) / 1000)
+
+      this.setState({ counter: diff })
+    } else {
+      this.setState({ counter: 0 })
+    }
+  }
+
   renderTitle(title) {
-    return (<h3>{title}</h3>)
+    return <h3>{title}</h3>
   }
 
   render() {
@@ -51,7 +65,7 @@ class CarCard extends Component {
     ]
 
     return (
-      <Card title={ <Counter seconds={this.state.counter} />}>
+      <Card title={<Counter seconds={this.state.counter} />}>
         {this.renderTitle(name)}
         <CarTable columns={columns} {...this.props} />
       </Card>
@@ -59,4 +73,4 @@ class CarCard extends Component {
   }
 }
 
-export default CarCard
+export default connect(({ counters }) => ({ counters }))(CarCard)
