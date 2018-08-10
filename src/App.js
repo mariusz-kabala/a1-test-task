@@ -8,6 +8,7 @@ import Form from './components/form'
 import { Row, Col } from 'antd'
 import CarsList from './components/carsList'
 import CarDetails from './components/details'
+import Summary from './components/summary'
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
           <Row type="flex" justify="center">
             <Col span={6}>
               <CarsList />
+              <Summary />
             </Col>
             <Col span={6}>
               <CarDetails />

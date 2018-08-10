@@ -52,3 +52,9 @@
   right: 5px;
   cursor: pointer;
 }
+
+.summary {
+  text-align: left;
+  margin-top: 15px;
+  font-size: 13px;
+}
